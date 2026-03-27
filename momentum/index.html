@@ -4,40 +4,73 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Momentum — Build habits one minute at a time</title>
-  <meta name="description" content="Break any goal into a 60-second task. Build streaks, earn badges, and create unstoppable momentum with the AI-powered habit app." />
+  <meta name="description" content="Break any goal into a 60-second task. Build streaks, earn badges, and create unstoppable momentum — one minute at a time." />
   <link rel="stylesheet" href="../assets/style.css" />
   <style>
+
+    /* ── Phone mockup ─────────────────────────────── */
+
+    .phone {
+      position: relative;
+      border-radius: 44px;
+      border: 7px solid #2a2a2a;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.06),
+        0 40px 100px rgba(0,0,0,0.7),
+        inset 0 0 0 1px rgba(255,255,255,0.03);
+      background: #000;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .phone img {
+      display: block;
+      width: 100%;
+      border-radius: 38px;
+    }
 
     /* ── Hero ─────────────────────────────────────── */
 
     .hero {
-      padding: 80px 24px 64px;
-      text-align: center;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 60px;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 80px 40px 80px;
     }
 
-    .hero-icon {
-      width: 100px;
-      height: 100px;
-      border-radius: 26px;
-      background: linear-gradient(145deg, #1a1a1a, #111);
-      border: 1px solid rgba(255,98,0,0.3);
-      box-shadow: 0 0 60px rgba(255,98,0,0.18);
+    .hero-text { max-width: 480px; }
+
+    .hero-app-name {
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 52px;
-      margin: 0 auto 28px;
+      gap: 12px;
+      margin-bottom: 24px;
     }
 
-    .hero-badge {
-      margin-bottom: 20px;
+    .hero-app-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      box-shadow: 0 4px 20px rgba(255,98,0,0.3);
     }
+
+    .hero-app-label {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+    }
+
+    .hero-badge { margin-bottom: 18px; }
 
     .hero h1 {
-      font-size: clamp(36px, 7vw, 68px);
+      font-size: clamp(38px, 5.5vw, 62px);
       font-weight: 900;
       letter-spacing: -0.035em;
-      line-height: 1.04;
+      line-height: 1.05;
       margin-bottom: 20px;
     }
 
@@ -47,17 +80,15 @@
     }
 
     .hero-sub {
-      font-size: 19px;
+      font-size: 18px;
       color: var(--muted);
-      max-width: 520px;
-      margin: 0 auto 40px;
-      line-height: 1.6;
+      line-height: 1.65;
+      margin-bottom: 36px;
     }
 
     .hero-actions {
       display: flex;
       gap: 12px;
-      justify-content: center;
       flex-wrap: wrap;
     }
 
@@ -69,36 +100,45 @@
       color: #000;
       font-weight: 800;
       font-size: 15px;
-      padding: 14px 24px;
+      padding: 14px 22px;
       border-radius: 14px;
       transition: opacity 0.2s, transform 0.15s;
       text-decoration: none;
+      font-family: var(--font);
     }
 
-    .appstore-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+    .appstore-btn:hover { opacity: 0.88; transform: translateY(-1px); }
     .appstore-btn:active { transform: scale(0.97); }
+    .appstore-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
 
-    .appstore-btn svg { width: 22px; height: 22px; flex-shrink: 0; }
+    .hero-phone {
+      width: 240px;
+    }
 
-    /* ── Social proof strip ───────────────────────── */
+    /* ── Proof strip ──────────────────────────────── */
 
     .proof-strip {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      padding: 28px 40px;
+    }
+
+    .proof-inner {
+      max-width: 900px;
+      margin: 0 auto;
       display: flex;
-      gap: 40px;
+      gap: 48px;
       justify-content: center;
       flex-wrap: wrap;
-      padding: 0 24px 60px;
     }
 
-    .proof-item {
-      text-align: center;
-    }
+    .proof-item { text-align: center; }
 
     .proof-num {
-      font-size: 26px;
+      font-size: 28px;
       font-weight: 900;
       letter-spacing: -0.02em;
-      color: var(--text);
     }
 
     .proof-label {
@@ -110,9 +150,21 @@
       margin-top: 2px;
     }
 
-    /* ── Section base ─────────────────────────────── */
+    /* ── How it works (3-phone strip) ────────────── */
 
-    section { padding: 80px 24px; }
+    .flow-section {
+      padding: 90px 40px;
+    }
+
+    .flow-inner {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .flow-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
 
     .section-label {
       display: block;
@@ -129,125 +181,153 @@
       font-weight: 900;
       letter-spacing: -0.025em;
       line-height: 1.15;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .section-body {
       font-size: 16px;
       color: var(--muted);
-      max-width: 560px;
       line-height: 1.7;
     }
 
-    /* ── How it works ─────────────────────────────── */
-
-    .steps-section {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .steps-inner {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .steps-header { margin-bottom: 52px; }
-
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    .flow-phones {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
       gap: 32px;
     }
 
-    .step {
+    .flow-step {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      align-items: center;
+      gap: 20px;
+      flex: 1;
+      max-width: 240px;
     }
 
-    .step-number {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
+    .flow-step .phone { width: 100%; }
+
+    .flow-step-label {
+      text-align: center;
+    }
+
+    .flow-step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
       background: var(--orange-dim);
       border: 1px solid rgba(255,98,0,0.22);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 900;
       color: var(--orange);
-    }
-
-    .step-title {
-      font-size: 16px;
-      font-weight: 800;
-      letter-spacing: -0.01em;
-    }
-
-    .step-desc {
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.65;
-    }
-
-    /* ── Features ─────────────────────────────────── */
-
-    .features-inner {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .features-header { margin-bottom: 48px; }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 16px;
-    }
-
-    .feature-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      transition: border-color 0.2s;
-    }
-
-    .feature-card:hover { border-color: rgba(255,255,255,0.14); }
-
-    .feature-icon {
-      width: 46px;
-      height: 46px;
-      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px;
+      margin: 0 auto 8px;
     }
 
-    .feature-icon--orange { background: rgba(255,98,0,0.12); }
-    .feature-icon--gold   { background: rgba(255,209,102,0.1); }
-    .feature-icon--green  { background: rgba(52,199,89,0.1); }
-    .feature-icon--purple { background: rgba(175,82,222,0.1); }
-    .feature-icon--blue   { background: rgba(90,200,250,0.1); }
-    .feature-icon--red    { background: rgba(255,69,58,0.1); }
-
-    .feature-title {
-      font-size: 16px;
+    .flow-step-title {
+      font-size: 15px;
       font-weight: 800;
       letter-spacing: -0.01em;
+      margin-bottom: 4px;
     }
 
-    .feature-desc {
+    .flow-step-desc {
       font-size: 13px;
       color: var(--muted);
-      line-height: 1.65;
+      line-height: 1.55;
     }
+
+    .flow-arrow {
+      font-size: 20px;
+      color: var(--subtle);
+      margin-top: 160px;
+      flex-shrink: 0;
+    }
+
+    /* ── Feature rows (alternating) ──────────────── */
+
+    .feature-row {
+      padding: 80px 40px;
+    }
+
+    .feature-row + .feature-row {
+      border-top: 1px solid var(--border);
+    }
+
+    .feature-row-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .feature-row-inner.reverse { direction: rtl; }
+    .feature-row-inner.reverse > * { direction: ltr; }
+
+    .feature-row-text {}
+
+    .feature-row-text h2 {
+      font-size: clamp(24px, 3.5vw, 34px);
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+
+    .feature-row-text p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .feature-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .feature-bullets li {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+    }
+
+    .feature-bullets li::before {
+      content: "✓";
+      color: var(--orange);
+      font-weight: 900;
+      font-size: 12px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .feature-row-visual {
+      display: flex;
+      justify-content: center;
+    }
+
+    .feature-row-visual .phone { width: 240px; }
+
+    /* two phones side by side */
+    .phone-duo {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .phone-duo .phone:nth-child(1) { width: 190px; margin-top: 30px; }
+    .phone-duo .phone:nth-child(2) { width: 190px; }
 
     /* ── Badges section ───────────────────────────── */
 
@@ -255,14 +335,15 @@
       background: var(--surface);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
+      padding: 90px 40px;
     }
 
     .badges-inner {
-      max-width: 900px;
+      max-width: 980px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 60px;
+      gap: 80px;
       align-items: center;
     }
 
@@ -285,15 +366,19 @@
     }
 
     .badge-item:hover { transform: scale(1.06); }
-    .badge-item.earned { background: linear-gradient(145deg, rgba(255,98,0,0.1), rgba(255,98,0,0.04)); border-color: rgba(255,98,0,0.2); }
-    .badge-item.rare   { background: linear-gradient(145deg, rgba(100,180,255,0.1), rgba(100,180,255,0.03)); border-color: rgba(100,180,255,0.2); }
-    .badge-item.epic   { background: linear-gradient(145deg, rgba(175,82,222,0.12), rgba(175,82,222,0.03)); border-color: rgba(175,82,222,0.25); }
-    .badge-item.legendary { background: linear-gradient(145deg, rgba(255,209,102,0.12), rgba(255,209,102,0.03)); border-color: rgba(255,209,102,0.3); }
+    .badge-item.earned   { background: linear-gradient(145deg,rgba(255,98,0,.1),rgba(255,98,0,.03));   border-color: rgba(255,98,0,.2); }
+    .badge-item.rare     { background: linear-gradient(145deg,rgba(100,180,255,.1),rgba(100,180,255,.03)); border-color: rgba(100,180,255,.2); }
+    .badge-item.epic     { background: linear-gradient(145deg,rgba(175,82,222,.12),rgba(175,82,222,.03)); border-color: rgba(175,82,222,.25); }
+    .badge-item.legendary{ background: linear-gradient(145deg,rgba(255,209,102,.12),rgba(255,209,102,.03)); border-color: rgba(255,209,102,.3); }
 
     /* ── Pricing ──────────────────────────────────── */
 
+    .pricing-section {
+      padding: 90px 40px;
+    }
+
     .pricing-inner {
-      max-width: 720px;
+      max-width: 700px;
       margin: 0 auto;
       text-align: center;
     }
@@ -304,7 +389,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
 
     .plan-card {
@@ -314,7 +399,6 @@
       padding: 28px 24px;
       text-align: left;
       position: relative;
-      transition: border-color 0.2s;
     }
 
     .plan-card--featured {
@@ -324,100 +408,46 @@
 
     .plan-badge {
       position: absolute;
-      top: -12px;
-      left: 50%;
+      top: -12px; left: 50%;
       transform: translateX(-50%);
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      font-size: 10px; font-weight: 900;
+      letter-spacing: 0.08em; text-transform: uppercase;
       color: var(--green);
       background: rgba(52,199,89,0.12);
       border: 1px solid rgba(52,199,89,0.3);
-      padding: 4px 12px;
-      border-radius: 100px;
+      padding: 4px 12px; border-radius: 100px;
       white-space: nowrap;
     }
 
-    .plan-name {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 8px;
-    }
-
-    .plan-price {
-      font-size: 32px;
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      color: var(--text);
-      margin-bottom: 4px;
-    }
-
-    .plan-price span {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--muted);
-    }
-
-    .plan-note {
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 20px;
-    }
-
+    .plan-name { font-size: 13px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+    .plan-price { font-size: 32px; font-weight: 900; letter-spacing: -0.03em; margin-bottom: 4px; }
+    .plan-price span { font-size: 15px; font-weight: 600; color: var(--muted); }
+    .plan-note { font-size: 12px; color: var(--muted); margin-bottom: 20px; }
     .plan-note strong { color: var(--gold); }
 
-    .plan-features {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
+    .plan-features { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .plan-features li { font-size: 13px; color: rgba(255,255,255,.65); display: flex; align-items: center; gap: 8px; }
+    .plan-features li::before { content: "✓"; color: var(--orange); font-weight: 800; font-size: 12px; flex-shrink: 0; }
 
-    .plan-features li {
-      font-size: 13px;
-      color: rgba(255,255,255,0.65);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+    .pricing-legal { font-size: 12px; color: rgba(255,255,255,.3); line-height: 1.7; }
+    .pricing-legal a { color: rgba(255,255,255,.45); }
 
-    .plan-features li::before {
-      content: "✓";
-      color: var(--orange);
-      font-weight: 800;
-      font-size: 12px;
-      flex-shrink: 0;
-    }
-
-    .pricing-legal {
-      font-size: 12px;
-      color: rgba(255,255,255,0.3);
-      line-height: 1.7;
-    }
-
-    .pricing-legal a { color: rgba(255,255,255,0.45); }
-
-    /* ── CTA section ──────────────────────────────── */
+    /* ── CTA ──────────────────────────────────────── */
 
     .cta-section {
       text-align: center;
-      padding: 80px 24px 100px;
+      padding: 90px 40px 100px;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
     }
 
-    .cta-inner {
-      max-width: 560px;
-      margin: 0 auto;
-    }
+    .cta-inner { max-width: 540px; margin: 0 auto; }
 
     .cta-section h2 {
       font-size: clamp(28px, 5vw, 44px);
       font-weight: 900;
       letter-spacing: -0.025em;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .cta-section p {
@@ -429,10 +459,46 @@
 
     /* ── Responsive ───────────────────────────────── */
 
-    @media (max-width: 680px) {
-      .badges-inner { grid-template-columns: 1fr; }
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 60px 24px;
+        gap: 48px;
+      }
+      .hero-text { max-width: 100%; }
+      .hero-app-name { justify-content: center; }
+      .hero-actions { justify-content: center; }
+      .hero-phone { width: 200px; margin: 0 auto; }
+
+      .flow-phones {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 16px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .flow-phones::-webkit-scrollbar { display: none; }
+      .flow-step { min-width: 180px; }
+      .flow-arrow { margin-top: 120px; }
+
+      .feature-row { padding: 60px 24px; }
+      .feature-row-inner { grid-template-columns: 1fr; gap: 48px; }
+      .feature-row-inner.reverse { direction: ltr; }
+      .feature-row-visual .phone { width: 200px; }
+      .phone-duo .phone:nth-child(1),
+      .phone-duo .phone:nth-child(2) { width: 160px; }
+      .phone-duo .phone:nth-child(1) { margin-top: 24px; }
+
+      .badges-inner { grid-template-columns: 1fr; gap: 48px; }
       .plans { grid-template-columns: 1fr; }
-      .proof-strip { gap: 28px; }
+      .flow-section, .pricing-section { padding: 70px 24px; }
+      .badges-section { padding: 70px 24px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-phone { width: 180px; }
+      .proof-inner { gap: 28px; }
     }
 
   </style>
@@ -451,131 +517,149 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="hero-icon">⚡</div>
-    <div class="hero-badge">
-      <span class="pill pill--gold">⭐ Free 3-Day Trial</span>
+    <div class="hero-text">
+      <div class="hero-app-name">
+        <img class="hero-app-icon" src="icon.png" alt="Momentum app icon" />
+        <span class="hero-app-label">Momentum</span>
+      </div>
+      <div class="hero-badge">
+        <span class="pill pill--gold">⭐ Free 3-Day Trial</span>
+      </div>
+      <h1>Build habits<br/><em>one minute</em><br/>at a time.</h1>
+      <p class="hero-sub">Pick a task. Hit start. Win in 60 seconds.<br/>That's all it takes to start building real momentum.</p>
+      <div class="hero-actions">
+        <a class="appstore-btn" href="https://apps.apple.com/app/id000000000" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          Download on the App Store
+        </a>
+      </div>
     </div>
-    <h1>Build habits<br/><em>one minute</em><br/>at a time.</h1>
-    <p class="hero-sub">Momentum turns any goal into a single 60-second action. Start small, stay consistent, and watch your streak grow.</p>
-    <div class="hero-actions">
-      <a class="appstore-btn" href="https://apps.apple.com/app/id000000000" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-        </svg>
-        Download on the App Store
-      </a>
+    <div class="hero-phone phone">
+      <img src="screenshots/Home.jpg" alt="Momentum home screen showing task suggestion and Start Now button" />
     </div>
   </section>
 
   <!-- Proof strip -->
   <div class="proof-strip">
-    <div class="proof-item">
-      <div class="proof-num">60s</div>
-      <div class="proof-label">Per task</div>
-    </div>
-    <div class="proof-item">
-      <div class="proof-num">15+</div>
-      <div class="proof-label">Badges to earn</div>
-    </div>
-    <div class="proof-item">
-      <div class="proof-num">AI</div>
-      <div class="proof-label">Powered planner</div>
-    </div>
-    <div class="proof-item">
-      <div class="proof-num">∞</div>
-      <div class="proof-label">Streaks possible</div>
+    <div class="proof-inner">
+      <div class="proof-item"><div class="proof-num">60s</div><div class="proof-label">Per task</div></div>
+      <div class="proof-item"><div class="proof-num">15+</div><div class="proof-label">Badges to earn</div></div>
+      <div class="proof-item"><div class="proof-num">AI</div><div class="proof-label">Powered planner</div></div>
+      <div class="proof-item"><div class="proof-num">∞</div><div class="proof-label">Streaks possible</div></div>
     </div>
   </div>
 
-  <!-- How it works -->
-  <section class="steps-section">
-    <div class="steps-inner container">
-      <div class="steps-header">
+  <!-- How it works — 3 phones -->
+  <section class="flow-section">
+    <div class="flow-inner">
+      <div class="flow-header">
         <span class="section-label">How it works</span>
-        <h2 class="section-title">Zero excuses.<br/>Just 60 seconds.</h2>
-        <p class="section-body">The hardest part of any habit is starting. Momentum removes every barrier — so you always find a reason to begin.</p>
+        <h2 class="section-title">Three screens. One win.</h2>
+        <p class="section-body" style="max-width:460px; margin: 0 auto;">From choosing a task to celebrating your win, the entire loop takes under two minutes.</p>
       </div>
-      <div class="steps-grid">
-        <div class="step">
-          <div class="step-number">1</div>
-          <div class="step-title">Pick a task</div>
-          <p class="step-desc">Choose from suggested tasks across work, health, and social — or type your own. Every task is 60 seconds max.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">2</div>
-          <div class="step-title">Hit start</div>
-          <p class="step-desc">A focused 60-second countdown keeps you locked in. No distractions. Just you and the task.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">3</div>
-          <div class="step-title">Earn the win</div>
-          <p class="step-desc">Complete it and celebrate with an animated win screen. Your streak grows and badges unlock as you build consistency.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">4</div>
-          <div class="step-title">Plan bigger goals</div>
-          <p class="step-desc">Use the AI Planner to break any big goal into a sequence of 60-second starter tasks — then work through them one day at a time.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Features -->
-  <section id="features">
-    <div class="features-inner">
-      <div class="features-header">
-        <span class="section-label">Features</span>
-        <h2 class="section-title">Everything you need<br/>to build real momentum.</h2>
-      </div>
-      <div class="features-grid">
+      <div class="flow-phones">
 
-        <div class="feature-card">
-          <div class="feature-icon feature-icon--orange">⚡</div>
-          <div class="feature-title">60-Second Timer</div>
-          <p class="feature-desc">A clean, full-screen countdown that keeps you focused. Complete the task, log the win, and move on.</p>
+        <div class="flow-step">
+          <div class="phone">
+            <img src="screenshots/Home.jpg" alt="Home screen — pick a task" />
+          </div>
+          <div class="flow-step-label">
+            <div class="flow-step-num">1</div>
+            <div class="flow-step-title">Pick a task</div>
+            <p class="flow-step-desc">Choose from suggested tasks across Work, Health, Social — or tap into your projects.</p>
+          </div>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon feature-icon--purple">🤖</div>
-          <div class="feature-title">AI Project Planner</div>
-          <p class="feature-desc">Type any goal and let AI break it into a step-by-step project of 60-second starter tasks. No more blank-page paralysis.</p>
+        <div class="flow-arrow">→</div>
+
+        <div class="flow-step">
+          <div class="phone">
+            <img src="screenshots/Task.jpg" alt="60-second countdown timer" />
+          </div>
+          <div class="flow-step-label">
+            <div class="flow-step-num">2</div>
+            <div class="flow-step-title">Go for 60 seconds</div>
+            <p class="flow-step-desc">A focused countdown keeps you locked in. No distractions. Just you and the task.</p>
+          </div>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon feature-icon--gold">🏅</div>
-          <div class="feature-title">Badges & Achievements</div>
-          <p class="feature-desc">Unlock 15+ badges across win milestones, streak records, and project completions. Share your victories with friends.</p>
-        </div>
+        <div class="flow-arrow">→</div>
 
-        <div class="feature-card">
-          <div class="feature-icon feature-icon--orange">🔥</div>
-          <div class="feature-title">Streak Tracking</div>
-          <p class="feature-desc">Keep your daily win streak alive. Miss a day and it resets — so you always have a reason to show up.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon feature-icon--blue">📁</div>
-          <div class="feature-title">Unlimited Projects</div>
-          <p class="feature-desc">Organise bigger goals into projects with steps and tasks. Track progress and check off tasks as you go.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon feature-icon--green">📊</div>
-          <div class="feature-title">Stats Dashboard</div>
-          <p class="feature-desc">See your win history, total points, current streak, and badge collection — all in one beautiful dark-mode dashboard.</p>
+        <div class="flow-step">
+          <div class="phone">
+            <img src="screenshots/Win.jpg" alt="WIN! celebration screen" />
+          </div>
+          <div class="flow-step-label">
+            <div class="flow-step-num">3</div>
+            <div class="flow-step-title">Earn the win</div>
+            <p class="flow-step-desc">Hit DONE and celebrate. Points stack, your streak grows, and badges unlock.</p>
+          </div>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- Badges showcase -->
+  <!-- Feature row 1: Stats dashboard -->
+  <div id="features" style="border-top: 1px solid var(--border); background: var(--surface);">
+  <section class="feature-row">
+    <div class="feature-row-inner">
+      <div class="feature-row-visual">
+        <div class="phone">
+          <img src="screenshots/Stats.jpg" alt="Stats dashboard showing score, streak, chart and badges" />
+        </div>
+      </div>
+      <div class="feature-row-text">
+        <span class="section-label">Stats &amp; progress</span>
+        <h2>See your momentum grow in real time.</h2>
+        <p>Every win adds to your score, fuels your streak, and moves the chart. Open the Stats tab and watch your consistency build into something you're proud of.</p>
+        <ul class="feature-bullets">
+          <li>Daily score with motivational taglines</li>
+          <li>Wins today, current streak, total wins at a glance</li>
+          <li>7-day and 30-day bar chart with average line</li>
+          <li>Full badge collection with unlock progress</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  </div>
+
+  <!-- Feature row 2: AI Planner + Project detail -->
+  <section class="feature-row">
+    <div class="feature-row-inner reverse">
+      <div class="feature-row-visual">
+        <div class="phone-duo">
+          <div class="phone">
+            <img src="screenshots/Projects.jpg" alt="AI Project Planner screen" />
+          </div>
+          <div class="phone">
+            <img src="screenshots/Project.jpg" alt="Project detail with phases and tasks" />
+          </div>
+        </div>
+      </div>
+      <div class="feature-row-text">
+        <span class="section-label">AI Project Planner</span>
+        <h2>Turn any goal into a plan you can actually execute.</h2>
+        <p>Type your goal, tap Generate, and the AI breaks it into a step-by-step project of 60-second starter tasks — organised into phases so you always know what to do next.</p>
+        <ul class="feature-bullets">
+          <li>Describe any goal in plain language</li>
+          <li>AI generates phases with actionable tasks</li>
+          <li>Each task launches directly into the 60s timer</li>
+          <li>Track progress per phase and across the full project</li>
+          <li>Unlimited projects with Premium</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Badges section -->
   <section class="badges-section">
-    <div class="badges-inner container">
+    <div class="badges-inner">
       <div>
         <span class="section-label">Achievements</span>
         <h2 class="section-title">Earn badges.<br/>Own your progress.</h2>
-        <p class="section-body">From your first win to a 30-day iron-will streak, every milestone comes with an animated celebration and a badge you can share.</p>
+        <p class="section-body">From your first win to a 30-day iron-will streak, every milestone unlocks an animated badge you can share.</p>
         <div style="margin-top: 28px; display: flex; gap: 8px; flex-wrap: wrap;">
           <span class="pill pill--orange">Common</span>
           <span style="display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;padding:5px 12px;border-radius:100px;color:rgb(100,180,255);background:rgba(100,180,255,0.1);border:1px solid rgba(100,180,255,0.22);">Rare</span>
@@ -601,16 +685,15 @@
   </section>
 
   <!-- Pricing -->
-  <section id="pricing">
+  <section class="pricing-section" id="pricing">
     <div class="pricing-inner">
       <div class="pricing-header">
         <span class="section-label">Pricing</span>
-        <h2 class="section-title">Start free.<br/>Go unlimited.</h2>
-        <p class="section-body" style="margin: 0 auto 0;">Try Momentum free for 3 days. Cancel anytime — no questions asked.</p>
+        <h2 class="section-title">Start free. Go unlimited.</h2>
+        <p class="section-body" style="margin: 0 auto;">Try Momentum free for 3 days. Cancel anytime — no questions asked.</p>
       </div>
 
       <div class="plans">
-
         <div class="plan-card">
           <div class="plan-name">Monthly</div>
           <div class="plan-price">€3.99 <span>/ mo</span></div>
@@ -622,7 +705,6 @@
             <li>All badges &amp; streaks</li>
           </ul>
         </div>
-
         <div class="plan-card plan-card--featured">
           <span class="plan-badge">Best value — save 37%</span>
           <div class="plan-name">Yearly</div>
@@ -634,7 +716,6 @@
             <li>Best long-term value</li>
           </ul>
         </div>
-
       </div>
 
       <p class="pricing-legal">
@@ -642,7 +723,6 @@
         Manage or cancel anytime in your <a href="https://apps.apple.com/account/subscriptions" target="_blank">App Store account settings</a>.<br/>
         <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms of Use</a>
       </p>
-
     </div>
   </section>
 
@@ -650,11 +730,9 @@
   <section class="cta-section">
     <div class="cta-inner">
       <h2>Your streak starts<br/>right now.</h2>
-      <p>Download Momentum and complete your first 60-second task today. It's free to try — no commitment required.</p>
+      <p>Download Momentum and complete your first 60-second task today. Free to try — no commitment required.</p>
       <a class="appstore-btn" href="https://apps.apple.com/app/id000000000" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor" style="width:22px;height:22px">
-          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-        </svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
         Download on the App Store
       </a>
     </div>
