@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Momentum — Build habits one minute at a time</title>
+  <meta name="description" content="Break any goal into a 60-second task. Build streaks, earn badges, and create unstoppable momentum with the AI-powered habit app." />
+  <link rel="stylesheet" href="../assets/style.css" />
+  <style>
+
+    /* ── Hero ─────────────────────────────────────── */
+
+    .hero {
+      padding: 80px 24px 64px;
+      text-align: center;
+    }
+
+    .hero-icon {
+      width: 100px;
+      height: 100px;
+      border-radius: 26px;
+      background: linear-gradient(145deg, #1a1a1a, #111);
+      border: 1px solid rgba(255,98,0,0.3);
+      box-shadow: 0 0 60px rgba(255,98,0,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 52px;
+      margin: 0 auto 28px;
+    }
+
+    .hero-badge {
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 7vw, 68px);
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      line-height: 1.04;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--orange);
+    }
+
+    .hero-sub {
+      font-size: 19px;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .appstore-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--text);
+      color: #000;
+      font-weight: 800;
+      font-size: 15px;
+      padding: 14px 24px;
+      border-radius: 14px;
+      transition: opacity 0.2s, transform 0.15s;
+      text-decoration: none;
+    }
+
+    .appstore-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+    .appstore-btn:active { transform: scale(0.97); }
+
+    .appstore-btn svg { width: 22px; height: 22px; flex-shrink: 0; }
+
+    /* ── Social proof strip ───────────────────────── */
+
+    .proof-strip {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 0 24px 60px;
+    }
+
+    .proof-item {
+      text-align: center;
+    }
+
+    .proof-num {
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .proof-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* ── Section base ─────────────────────────────── */
+
+    section { padding: 80px 24px; }
+
+    .section-label {
+      display: block;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+
+    .section-body {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    /* ── How it works ─────────────────────────────── */
+
+    .steps-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .steps-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .steps-header { margin-bottom: 52px; }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 32px;
+    }
+
+    .step {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .step-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--orange-dim);
+      border: 1px solid rgba(255,98,0,0.22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 900;
+      color: var(--orange);
+    }
+
+    .step-title {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    .step-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ── Features ─────────────────────────────────── */
+
+    .features-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .features-header { margin-bottom: 48px; }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: border-color 0.2s;
+    }
+
+    .feature-card:hover { border-color: rgba(255,255,255,0.14); }
+
+    .feature-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .feature-icon--orange { background: rgba(255,98,0,0.12); }
+    .feature-icon--gold   { background: rgba(255,209,102,0.1); }
+    .feature-icon--green  { background: rgba(52,199,89,0.1); }
+    .feature-icon--purple { background: rgba(175,82,222,0.1); }
+    .feature-icon--blue   { background: rgba(90,200,250,0.1); }
+    .feature-icon--red    { background: rgba(255,69,58,0.1); }
+
+    .feature-title {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    .feature-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ── Badges section ───────────────────────────── */
+
+    .badges-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .badges-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .badge-showcase {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .badge-item {
+      aspect-ratio: 1;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      transition: transform 0.2s;
+    }
+
+    .badge-item:hover { transform: scale(1.06); }
+    .badge-item.earned { background: linear-gradient(145deg, rgba(255,98,0,0.1), rgba(255,98,0,0.04)); border-color: rgba(255,98,0,0.2); }
+    .badge-item.rare   { background: linear-gradient(145deg, rgba(100,180,255,0.1), rgba(100,180,255,0.03)); border-color: rgba(100,180,255,0.2); }
+    .badge-item.epic   { background: linear-gradient(145deg, rgba(175,82,222,0.12), rgba(175,82,222,0.03)); border-color: rgba(175,82,222,0.25); }
+    .badge-item.legendary { background: linear-gradient(145deg, rgba(255,209,102,0.12), rgba(255,209,102,0.03)); border-color: rgba(255,209,102,0.3); }
+
+    /* ── Pricing ──────────────────────────────────── */
+
+    .pricing-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .pricing-header { margin-bottom: 48px; }
+
+    .plans {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .plan-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 24px;
+      text-align: left;
+      position: relative;
+      transition: border-color 0.2s;
+    }
+
+    .plan-card--featured {
+      border-color: rgba(52,199,89,0.3);
+      background: linear-gradient(145deg, rgba(52,199,89,0.04), var(--card));
+    }
+
+    .plan-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--green);
+      background: rgba(52,199,89,0.12);
+      border: 1px solid rgba(52,199,89,0.3);
+      padding: 4px 12px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    .plan-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+    }
+
+    .plan-price {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .plan-price span {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .plan-note {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .plan-note strong { color: var(--gold); }
+
+    .plan-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .plan-features li {
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .plan-features li::before {
+      content: "✓";
+      color: var(--orange);
+      font-weight: 800;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+
+    .pricing-legal {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+      line-height: 1.7;
+    }
+
+    .pricing-legal a { color: rgba(255,255,255,0.45); }
+
+    /* ── CTA section ──────────────────────────────── */
+
+    .cta-section {
+      text-align: center;
+      padding: 80px 24px 100px;
+    }
+
+    .cta-inner {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(28px, 5vw, 44px);
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      font-size: 17px;
+      color: var(--muted);
+      margin-bottom: 36px;
+      line-height: 1.65;
+    }
+
+    /* ── Responsive ───────────────────────────────── */
+
+    @media (max-width: 680px) {
+      .badges-inner { grid-template-columns: 1fr; }
+      .plans { grid-template-columns: 1fr; }
+      .proof-strip { gap: 28px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="site-nav">
+    <a class="nav-brand" href="../">← <span>nielsweggeman.com</span></a>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-icon">⚡</div>
+    <div class="hero-badge">
+      <span class="pill pill--gold">⭐ Free 3-Day Trial</span>
+    </div>
+    <h1>Build habits<br/><em>one minute</em><br/>at a time.</h1>
+    <p class="hero-sub">Momentum turns any goal into a single 60-second action. Start small, stay consistent, and watch your streak grow.</p>
+    <div class="hero-actions">
+      <a class="appstore-btn" href="https://apps.apple.com/app/id000000000" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+        </svg>
+        Download on the App Store
+      </a>
+    </div>
+  </section>
+
+  <!-- Proof strip -->
+  <div class="proof-strip">
+    <div class="proof-item">
+      <div class="proof-num">60s</div>
+      <div class="proof-label">Per task</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-num">15+</div>
+      <div class="proof-label">Badges to earn</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-num">AI</div>
+      <div class="proof-label">Powered planner</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-num">∞</div>
+      <div class="proof-label">Streaks possible</div>
+    </div>
+  </div>
+
+  <!-- How it works -->
+  <section class="steps-section">
+    <div class="steps-inner container">
+      <div class="steps-header">
+        <span class="section-label">How it works</span>
+        <h2 class="section-title">Zero excuses.<br/>Just 60 seconds.</h2>
+        <p class="section-body">The hardest part of any habit is starting. Momentum removes every barrier — so you always find a reason to begin.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-title">Pick a task</div>
+          <p class="step-desc">Choose from suggested tasks across work, health, and social — or type your own. Every task is 60 seconds max.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-title">Hit start</div>
+          <p class="step-desc">A focused 60-second countdown keeps you locked in. No distractions. Just you and the task.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-title">Earn the win</div>
+          <p class="step-desc">Complete it and celebrate with an animated win screen. Your streak grows and badges unlock as you build consistency.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-title">Plan bigger goals</div>
+          <p class="step-desc">Use the AI Planner to break any big goal into a sequence of 60-second starter tasks — then work through them one day at a time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features">
+    <div class="features-inner">
+      <div class="features-header">
+        <span class="section-label">Features</span>
+        <h2 class="section-title">Everything you need<br/>to build real momentum.</h2>
+      </div>
+      <div class="features-grid">
+
+        <div class="feature-card">
+          <div class="feature-icon feature-icon--orange">⚡</div>
+          <div class="feature-title">60-Second Timer</div>
+          <p class="feature-desc">A clean, full-screen countdown that keeps you focused. Complete the task, log the win, and move on.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon feature-icon--purple">🤖</div>
+          <div class="feature-title">AI Project Planner</div>
+          <p class="feature-desc">Type any goal and let AI break it into a step-by-step project of 60-second starter tasks. No more blank-page paralysis.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon feature-icon--gold">🏅</div>
+          <div class="feature-title">Badges & Achievements</div>
+          <p class="feature-desc">Unlock 15+ badges across win milestones, streak records, and project completions. Share your victories with friends.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon feature-icon--orange">🔥</div>
+          <div class="feature-title">Streak Tracking</div>
+          <p class="feature-desc">Keep your daily win streak alive. Miss a day and it resets — so you always have a reason to show up.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon feature-icon--blue">📁</div>
+          <div class="feature-title">Unlimited Projects</div>
+          <p class="feature-desc">Organise bigger goals into projects with steps and tasks. Track progress and check off tasks as you go.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon feature-icon--green">📊</div>
+          <div class="feature-title">Stats Dashboard</div>
+          <p class="feature-desc">See your win history, total points, current streak, and badge collection — all in one beautiful dark-mode dashboard.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Badges showcase -->
+  <section class="badges-section">
+    <div class="badges-inner container">
+      <div>
+        <span class="section-label">Achievements</span>
+        <h2 class="section-title">Earn badges.<br/>Own your progress.</h2>
+        <p class="section-body">From your first win to a 30-day iron-will streak, every milestone comes with an animated celebration and a badge you can share.</p>
+        <div style="margin-top: 28px; display: flex; gap: 8px; flex-wrap: wrap;">
+          <span class="pill pill--orange">Common</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;padding:5px 12px;border-radius:100px;color:rgb(100,180,255);background:rgba(100,180,255,0.1);border:1px solid rgba(100,180,255,0.22);">Rare</span>
+          <span style="display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;padding:5px 12px;border-radius:100px;color:rgb(175,82,222);background:rgba(175,82,222,0.1);border:1px solid rgba(175,82,222,0.22);">Epic</span>
+          <span class="pill pill--gold">Legendary</span>
+        </div>
+      </div>
+      <div class="badge-showcase">
+        <div class="badge-item earned">⭐</div>
+        <div class="badge-item earned">🔥</div>
+        <div class="badge-item earned">⚡</div>
+        <div class="badge-item rare">📈</div>
+        <div class="badge-item rare">🏅</div>
+        <div class="badge-item rare">🗓️</div>
+        <div class="badge-item epic">🏆</div>
+        <div class="badge-item epic">⚡</div>
+        <div class="badge-item legendary">👑</div>
+        <div class="badge-item legendary">✨</div>
+        <div class="badge-item earned">🔨</div>
+        <div class="badge-item rare">☀️</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing">
+    <div class="pricing-inner">
+      <div class="pricing-header">
+        <span class="section-label">Pricing</span>
+        <h2 class="section-title">Start free.<br/>Go unlimited.</h2>
+        <p class="section-body" style="margin: 0 auto 0;">Try Momentum free for 3 days. Cancel anytime — no questions asked.</p>
+      </div>
+
+      <div class="plans">
+
+        <div class="plan-card">
+          <div class="plan-name">Monthly</div>
+          <div class="plan-price">€3.99 <span>/ mo</span></div>
+          <p class="plan-note"><strong>3-day free trial</strong> · then billed monthly</p>
+          <ul class="plan-features">
+            <li>Unlimited daily tasks</li>
+            <li>AI Project Planner</li>
+            <li>Unlimited projects</li>
+            <li>All badges &amp; streaks</li>
+          </ul>
+        </div>
+
+        <div class="plan-card plan-card--featured">
+          <span class="plan-badge">Best value — save 37%</span>
+          <div class="plan-name">Yearly</div>
+          <div class="plan-price">€29.99 <span>/ yr</span></div>
+          <p class="plan-note">Just €2.50 / month · billed annually</p>
+          <ul class="plan-features">
+            <li>Everything in Monthly</li>
+            <li>Priority new features</li>
+            <li>Best long-term value</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <p class="pricing-legal">
+        Subscriptions auto-renew unless cancelled at least 24 hours before the end of the current billing period.
+        Manage or cancel anytime in your <a href="https://apps.apple.com/account/subscriptions" target="_blank">App Store account settings</a>.<br/>
+        <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms of Use</a>
+      </p>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>Your streak starts<br/>right now.</h2>
+      <p>Download Momentum and complete your first 60-second task today. It's free to try — no commitment required.</p>
+      <a class="appstore-btn" href="https://apps.apple.com/app/id000000000" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:22px;height:22px">
+          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+        </svg>
+        Download on the App Store
+      </a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="footer-copy">&copy; 2026 Niels Weggeman. Momentum is available on iOS.</span>
+      <ul class="footer-links">
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Use</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>

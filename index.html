@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Niels Weggeman — iOS Apps</title>
+  <meta name="description" content="iOS apps built by Niels Weggeman." />
+  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    .hero {
+      padding: 100px 24px 80px;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(38px, 7vw, 64px);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+    .hero h1 span { color: var(--orange); }
+    .hero p {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* App grid */
+    .apps {
+      padding: 0 24px 100px;
+    }
+    .apps-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .app-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: border-color 0.2s, transform 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .app-card:hover {
+      border-color: rgba(255,255,255,0.16);
+      transform: translateY(-2px);
+      opacity: 1;
+    }
+
+    .app-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: var(--orange-dim);
+      border: 1px solid rgba(255,98,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+    }
+
+    .app-name {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    .app-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .app-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--orange);
+    }
+
+    .app-cta svg { width: 14px; height: 14px; }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <span class="nav-brand"><span>Niels Weggeman</span></span>
+    <ul class="nav-links">
+      <li><a href="mailto:hello@nielsweggeman.com">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <span class="hero-eyebrow">iOS Development</span>
+    <h1>Apps that help you<br/><span>build better habits</span></h1>
+    <p>Simple, focused iOS apps designed to help you take action and stay consistent.</p>
+  </section>
+
+  <section class="apps">
+    <div class="apps-grid">
+
+      <a class="app-card" href="momentum/">
+        <div class="app-icon">⚡</div>
+        <div>
+          <div class="app-name">Momentum</div>
+          <div style="margin-top: 6px;">
+            <span class="pill pill--orange">Available on the App Store</span>
+          </div>
+        </div>
+        <p class="app-desc">Break any goal into a 60-second task. Build streaks, earn badges, and create unstoppable momentum — one minute at a time.</p>
+        <span class="app-cta">
+          View app
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 8h10M9 4l4 4-4 4"/>
+          </svg>
+        </span>
+      </a>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="footer-copy">&copy; 2026 Niels Weggeman. All rights reserved.</span>
+      <ul class="footer-links">
+        <li><a href="mailto:hello@nielsweggeman.com">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>

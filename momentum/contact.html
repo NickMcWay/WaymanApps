@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Momentum</title>
+  <meta name="description" content="Get in touch with the developer of Momentum for iOS." />
+  <link rel="stylesheet" href="../assets/style.css" />
+  <style>
+    .contact-hero {
+      padding: 80px 24px 60px;
+      text-align: center;
+    }
+    .contact-hero h1 {
+      font-size: clamp(32px, 6vw, 52px);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+    .contact-hero p {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 440px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    .contact-cards {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transition: border-color 0.2s, transform 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .contact-card:hover {
+      border-color: rgba(255,255,255,0.16);
+      transform: translateY(-1px);
+      opacity: 1;
+    }
+
+    .contact-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .contact-icon--orange { background: rgba(255,98,0,0.12); }
+    .contact-icon--blue   { background: rgba(90,200,250,0.1); }
+
+    .contact-body { flex: 1; }
+
+    .contact-title {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+    }
+
+    .contact-detail {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .contact-arrow {
+      color: var(--subtle);
+      font-size: 18px;
+    }
+
+    .contact-note {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 24px 40px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px 28px;
+    }
+
+    .contact-note-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .contact-note p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .contact-note a { color: var(--orange); }
+
+    .response-time {
+      max-width: 640px;
+      margin: 16px auto 0;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    .response-time p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a class="nav-brand" href="index.html">← <span>Momentum</span></a>
+    <ul class="nav-links">
+      <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="terms.html">Terms</a></li>
+    </ul>
+  </nav>
+
+  <div class="contact-hero">
+    <h1>Get in touch</h1>
+    <p>Questions, feedback, or just want to say hi? I'd love to hear from you.</p>
+  </div>
+
+  <div class="contact-cards">
+
+    <a class="contact-card" href="mailto:hello@nielsweggeman.com">
+      <div class="contact-icon contact-icon--orange">✉️</div>
+      <div class="contact-body">
+        <div class="contact-title">Email</div>
+        <div class="contact-detail">hello@nielsweggeman.com</div>
+      </div>
+      <span class="contact-arrow">→</span>
+    </a>
+
+    <a class="contact-card" href="https://apps.apple.com/app/id000000000" target="_blank" rel="noopener">
+      <div class="contact-icon contact-icon--blue">⭐</div>
+      <div class="contact-body">
+        <div class="contact-title">Leave a review</div>
+        <div class="contact-detail">Rate Momentum on the App Store</div>
+      </div>
+      <span class="contact-arrow">→</span>
+    </a>
+
+  </div>
+
+  <div style="max-width: 640px; margin: 0 auto; padding: 0 24px 80px; display: flex; flex-direction: column; gap: 16px;">
+
+    <div class="contact-note">
+      <div class="contact-note-title">Subscription support</div>
+      <p>For billing questions, refund requests, or subscription management, please contact Apple Support directly — all payments are processed by Apple and we do not have access to your billing information. You can manage your subscription in your <a href="https://apps.apple.com/account/subscriptions" target="_blank" rel="noopener">App Store Account Settings</a>.</p>
+    </div>
+
+    <div class="contact-note">
+      <div class="contact-note-title">Bug reports &amp; feature requests</div>
+      <p>Found a bug or have an idea for a new feature? Send me an email with as much detail as possible — device model, iOS version, and steps to reproduce the issue. I read every message and ship updates regularly.</p>
+    </div>
+
+  </div>
+
+  <div class="response-time">
+    <p>I aim to respond to all emails within 2 business days.</p>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="footer-copy">&copy; 2026 Niels Weggeman. All rights reserved.</span>
+      <ul class="footer-links">
+        <li><a href="index.html">Momentum</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Use</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>
