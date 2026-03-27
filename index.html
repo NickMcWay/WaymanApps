@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Niels Weggeman — iOS Apps</title>
   <meta name="description" content="iOS apps built by Niels Weggeman." />
+  <link rel="icon" type="image/png" href="momentum/icon-1024.png" />
   <link rel="stylesheet" href="assets/style.css" />
   <style>
     .hero {
@@ -69,12 +70,15 @@
       width: 64px;
       height: 64px;
       border-radius: 16px;
-      background: var(--orange-dim);
-      border: 1px solid rgba(255,98,0,0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 30px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .app-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 16px;
     }
 
     .app-name {
@@ -121,7 +125,9 @@
     <div class="apps-grid">
 
       <a class="app-card" href="momentum/">
-        <div class="app-icon">⚡</div>
+        <div class="app-icon">
+          <img src="momentum/icon-1024.png" alt="Momentum app icon" />
+        </div>
         <div>
           <div class="app-name">Momentum</div>
           <div style="margin-top: 6px;">
